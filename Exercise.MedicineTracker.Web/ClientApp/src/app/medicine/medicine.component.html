@@ -1,0 +1,16 @@
+<ng-container *ngIf="(medicine$ | async) as medicine; else loading">
+  <div>
+    <h1>Medicine Detail :</h1>
+    <ul>
+      <li>Medicine Name - {{ medicine.name }}</li>
+      <li>Brand - {{ medicine.brand }}</li>
+      <li>Price - Rs.{{ medicine.price | number : '.2-2' }}</li>
+      <li>Quantity - {{ medicine.quantity| number }}</li>
+      <li>Expiry Date - {{ medicine.expiryDate | date: "dd.MM.yyyy" }}</li>
+    </ul>
+  </div>
+  <div>
+    <button class="btn btn-secondary float-left" (click)="cancel()">Back</button>
+  </div>
+</ng-container>
+<ng-template #loading>Loading…</ng-template>
